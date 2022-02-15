@@ -10,7 +10,7 @@
 {{ config(materialized='table') }}
 
 select *
-from {{refsample_customer_data
+from {{ref ('sample_customer_data')}}
 
 /*
     Uncomment the line below to remove records with null `id` values
