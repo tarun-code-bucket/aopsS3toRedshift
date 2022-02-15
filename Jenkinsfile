@@ -28,8 +28,8 @@ pipeline{
         stage('dbt-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
-                            sh "python3.7 -m pip uninstall dbt-core dbt-redshift -y"
-                            sh "chmod +x -R ${env.WORKSPACE}"
+                            //sh "python3.7 -m pip uninstall dbt-core dbt-redshift -y"
+                            sh "sudo yum --enablerepo=extras install epel-release"
                             sh "sudo yum install virtualenv"
                             sh "python3 -m venv vm_dbt_package"
                             sh "cd vm_dbt_package"
