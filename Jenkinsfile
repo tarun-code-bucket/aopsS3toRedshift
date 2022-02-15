@@ -1,5 +1,4 @@
 pipeline{
-
     agent any
 
     parameters{
@@ -16,12 +15,14 @@ pipeline{
         )
     }
 
-    stage('stack-execution'){
-            steps{
+    stages{
+        stage('stack-execution'){
+                steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
-                        sh "chmod +x -R ${env.WORKSPACE}"
-                        sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${TEMPLATE_NAME} ${CHANGESET_MODE} ${REGION}'
-                    } 
+                            sh "chmod +x -R ${env.WORKSPACE}"
+                            sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${TEMPLATE_NAME} ${CHANGESET_MODE} ${REGION}'
+                        } 
             }
         }
+    }
 }
