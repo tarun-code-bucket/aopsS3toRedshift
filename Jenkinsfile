@@ -21,6 +21,7 @@ pipeline{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
                             sh "pip3 install boto3"
                             sh "chmod +x -R ${env.WORKSPACE}"
+                            sh "cd ${env.WORKSPACE}"
                             sh 'python scripts/getDataFromS3.py ${Bucket_Name} ${File_Name}'
                         } 
             }
