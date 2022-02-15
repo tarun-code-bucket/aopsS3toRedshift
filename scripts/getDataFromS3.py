@@ -16,7 +16,7 @@ def getS3Data(bucket_name, file_name):
     logging.info("Call the getS3Connection function.")
     conn = getS3Connection()
     logging.info("Call the download_file function.")
-    conn.download_file(bucket_name, Filename = file_name)
+    conn.download_file(bucket_name,'',Filename = file_name)
 
 def main():
     logging.info("Get the parameters.")
