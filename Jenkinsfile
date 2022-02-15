@@ -30,7 +30,7 @@ pipeline{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
                             sh "pwd"
                             sh "python3.7 -m pip install dbt-core dbt-redshift"
-                            sh "dbt init"
+                            sh "pip3 show dbt"
                             sh "cd s3DBTRedshift"
                             sh "dbt debug"
                             sh "dbt seed"
