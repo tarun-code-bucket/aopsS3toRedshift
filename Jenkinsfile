@@ -44,7 +44,7 @@ pipeline{
                             //sh "echo ${env.PATH}"
                             sh "cd ${env.WORKSPACE}"
                             sh "pwd" && "echo ${env.WORKSPACE}"
-                            sh "pip3 uninstall dbt-core dbt-redshift -y"
+                            sh "sudo pip3 uninstall dbt-core dbt-redshift -y"
                             sh "sudo pip3 install dbt-core dbt-redshift"
                             //sh "export PATH=\"/usr/local/bin/:${PATH}\""
                             sh "echo $PATH"
