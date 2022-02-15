@@ -51,7 +51,7 @@ pipeline{
                             sh "dbt --version"
                             dir("s3DBTRedshift"){
                                 //sh "sudo cp ${env.WORKSPACE}/s3DBTRedshift/profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
-                                dbt debug --config-dir
+                                sh "dbt debug --config-dir"
                                 sh "dbt run"
                                 sh "dbt seed"
                             }
