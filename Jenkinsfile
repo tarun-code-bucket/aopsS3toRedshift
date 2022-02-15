@@ -22,7 +22,7 @@ pipeline{
                             sh "pip3 install boto3"
                             sh "chmod +x -R ${env.WORKSPACE}"
                             sh "echo ${env.WORKSPACE}"
-                            sh 'python scripts/getDataFromS3.py ${Bucket_Name} ${File_Name}'
+                            sh 'python3 scripts/getDataFromS3.py ${Bucket_Name} ${File_Name}'
                         } 
             }
         }
