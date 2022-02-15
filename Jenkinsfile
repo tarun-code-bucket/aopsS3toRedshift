@@ -42,7 +42,7 @@ pipeline{
                             //sh "source venv/bin/activate"
                             //sh "export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:${env.PATH}\""
                             //sh "echo ${env.PATH}"
-                            sh "cd ${env.WORKSPACE}"
+                            //sh "cd ${env.WORKSPACE}"
                             sh "pwd" && "echo ${env.WORKSPACE}"
                             sh "sudo pip3 uninstall dbt-core dbt-redshift -y"
                             sh "sudo pip3 install dbt-core dbt-redshift"
