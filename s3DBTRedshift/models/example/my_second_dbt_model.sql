@@ -3,4 +3,4 @@
 
 select *
 from {{ ref('sample_customer_data') }}
-where city = "Orleans"
+where city == "Orleans"
