@@ -20,7 +20,7 @@ pipeline{
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
                             sh 'which python'
-                            sh 'pip install boto3'
+                            sh 'pip3 install boto3'
                             sh "chmod +x -R ${env.WORKSPACE}"
                             sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${REGION}'
                         } 
