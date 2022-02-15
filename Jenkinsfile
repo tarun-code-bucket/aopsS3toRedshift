@@ -40,7 +40,7 @@ pipeline{
                             //sh "echo ${env.PATH}"
                             sh "sudo pip3 install dbt-core dbt-redshift"
                             //sh "pip3 uninstall dbt-core dbt-redshift -y"
-                            //sh "export PATH=\"/usr/local/bin/dbt:${env.PATH}\""
+                            sh "export PATH=\"/usr/local/bin/:${PATH}\""
                             sh "echo $PATH"
                             sh "dbt --version"
                             sh "cd s3DBTRedshift"
