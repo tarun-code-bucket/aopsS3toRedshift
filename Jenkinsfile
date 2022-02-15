@@ -39,7 +39,7 @@ pipeline{
                             //sh "export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:${env.PATH}\""
                             //sh "echo ${env.PATH}"
                             sh "sudo pip3 install dbt-core dbt-redshift"
-                            sh "whoami"
+                            sh "export PATH=\"/usr/local/bin/dbt:${env.PATH}\""
                             sh "dbt --version"
                             sh "cd s3DBTRedshift"
                             sh "dbt debug"
