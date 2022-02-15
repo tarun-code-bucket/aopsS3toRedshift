@@ -23,6 +23,15 @@ pipeline{
                             sh "chmod +x -R ${env.WORKSPACE}"
                             sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name}'
                         } 
+                }
+                steps{
+                    withAWS(role: 'AopsJenkins', region: 'us-east-1'){
+                            sh "pip3 install dbt-core dbt-redshift"
+                            sh "cd s3DBTRedshift"
+                            sh "dbt init"
+                            sh "dbt debug"
+                            sh "dbt seed"
+                        } 
             }
         }
     }
