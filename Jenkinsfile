@@ -31,7 +31,7 @@ pipeline{
                             //sh "python3.7 -m pip uninstall dbt-core dbt-redshift -y"
                             //sh "python3 install --upgrade pip3"
                             sh "pip3 install dbt-core dbt-redshift"
-                            sh "pip3 show dbt"
+                            sh "dbt --version"
                             sh "cd s3DBTRedshift"
                             sh "dbt debug"
                             sh "dbt seed"
