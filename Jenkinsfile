@@ -19,9 +19,6 @@ pipeline{
         stage('stack-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
-                            sh 'alternatives --set python /usr/bin/python3'
-                            //sh 'alias python=python3'
-                            sh 'python --version'
                             sh 'pip3 install boto3'
                             sh "chmod +x -R ${env.WORKSPACE}"
                             sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${REGION}'
