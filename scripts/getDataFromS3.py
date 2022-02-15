@@ -26,7 +26,7 @@ def main():
     #     secret_key = creds["dev"]["aws_secret_key"]
     #     print(secret_key)
   
-    access_key = creds["dev"]["aws_access_key"]
+    access_key = 
     secret_key = creds["dev"]["aws_secret_key"]
     bucket_name = sys.argv[1]
     file_name = sys.argv[2]
