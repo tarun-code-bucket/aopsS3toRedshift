@@ -15,6 +15,10 @@ pipeline{
         )
     }
 
+    environment {
+        PATH = "/usr/local/lib/python3.7/site-packages:${env.PATH}"
+    }
+
     stages{
         stage('stack-execution'){
                 steps{
