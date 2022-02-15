@@ -33,6 +33,7 @@ pipeline{
                             //sh "pip3 install dbt-core dbt-redshift"
                             //sh "pip3 show dbt"
                             //sh "sudo su -l ec2-user"
+                            sh "echo export PATH=$/var/lib/jenkins/.local/bin/dbt/bin:$PATH"
                             sh "echo $PATH"
                             sh "pip3 install dbt-core dbt-redshift"
                             sh "whoami"
