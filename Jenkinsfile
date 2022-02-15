@@ -25,6 +25,7 @@ pipeline{
                         } 
                 }
         }
+      
         stage('dbt-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
@@ -33,8 +34,8 @@ pipeline{
                             //sh "pip3 install dbt-core dbt-redshift"
                             //sh "pip3 show dbt"
                             //sh "sudo su -l ec2-user"
-                            sh "sudo export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:$PATH\""
-                            sh "echo $PATH"
+                            sh "export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:${env.PATH}\""
+                            sh "echo ${env.PATH}"
                             sh "pip3 install dbt-core dbt-redshift"
                             sh "whoami"
                             sh "dbt --version"
