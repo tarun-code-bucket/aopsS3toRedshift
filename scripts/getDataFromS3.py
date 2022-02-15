@@ -6,15 +6,15 @@ import sys
 import logging
 import yaml
 
-def getS3Connection(access_key, secret_key):
+def getS3Connection():
     # Get S3 connection
-    s3Client = boto3.client('s3', access_key, secret_key)
+    s3Client = boto3.client('s3')
     return s3Client
 
-def getS3Data(access_key, secret_key, bucket_name, file_name):
+def getS3Data(bucket_name, file_name):
     # Get S3 data
     logging.info("Call the getS3Connection function.")
-    conn = getS3Connection(access_key, secret_key)
+    conn = getS3Connection()
     logging.info("Call the download_file function.")
     conn.download_file(bucket_name, file_name)
 
@@ -26,12 +26,10 @@ def main():
     #     secret_key = creds["dev"]["aws_secret_key"]
     #     print(secret_key)
   
-    access_key = 
-    secret_key = creds["dev"]["aws_secret_key"]
     bucket_name = sys.argv[1]
     file_name = sys.argv[2]
     logging.info("Call the getS3Data function.")
-    getS3Data(access_key, secret_key, bucket_name, file_name)
+    getS3Data(bucket_name, file_name)
 
 if __name__ == "__main__":
     main()
