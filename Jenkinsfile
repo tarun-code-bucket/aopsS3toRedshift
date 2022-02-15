@@ -16,7 +16,7 @@ pipeline{
     }
 
     environment {
-        PATH = "/usr/local/lib/python3.7/site-packages:${env.PATH}"
+        PATH = "/usr/local/bin:${env.PATH}"
     }
 
     stages{
@@ -44,9 +44,9 @@ pipeline{
                             //sh "echo ${env.PATH}"
                             sh "cd ${env.WORKSPACE}"
                             sh "pwd" && "echo ${env.WORKSPACE}"
+                            sh "pip3 uninstall dbt-core dbt-redshift -y"
                             sh "sudo pip3 install dbt-core dbt-redshift"
-                            //sh "pip3 uninstall dbt-core dbt-redshift -y"
-                            sh "export PATH=\"/usr/local/bin/:${PATH}\""
+                            //sh "export PATH=\"/usr/local/bin/:${PATH}\""
                             sh "echo $PATH"
                             sh "dbt --version"
                             sh "cd s3DBTRedshift"
