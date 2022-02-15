@@ -33,7 +33,7 @@ pipeline{
                             //sh "pip3 install dbt-core dbt-redshift"
                             //sh "pip3 show dbt"
                             sh "sudo su ec2-user"
-                            sh "pip3 install dbt-core dbt-redshift"
+                            sh "sudo su -c pip3 install dbt-core dbt-redshift ec2-user"
                             sh "whoami"
                             sh "dbt --version"
                             sh "cd s3DBTRedshift"
