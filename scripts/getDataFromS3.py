@@ -4,7 +4,7 @@ import os
 import boto3
 import sys
 import logging
-import yaml
+
 
 def getS3Connection():
     # Get S3 connection
