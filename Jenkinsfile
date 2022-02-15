@@ -46,7 +46,7 @@ pipeline{
                             sh "pwd" && "echo ${env.WORKSPACE}"
                             sh "sudo pip3 uninstall dbt-core dbt-redshift -y"
                             sh "sudo pip3 install dbt-core dbt-redshift"
-                            //sh "export PATH=\"/usr/local/bin/:${PATH}\""
+                            sh "export PATH=\"/usr/local/bin/:${PATH}\""
                             sh "echo $PATH"
                             sh "dbt --version"
                             dir("s3DBTRedshift"){
