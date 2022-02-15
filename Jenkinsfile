@@ -51,9 +51,9 @@ pipeline{
                             sh "dbt --version"
                             dir("s3DBTRedshift"){
                                 //sh "sudo mv profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
-                                sh "dbt debug"
-                                sh "dbt run"
-                                sh "dbt seed"
+                                sh "sudo dbt debug"
+                                sh "sudo dbt run"
+                                sh "sudo dbt seed"
                             }
                         } 
                 }
