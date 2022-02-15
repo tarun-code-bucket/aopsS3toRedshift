@@ -34,6 +34,7 @@ pipeline{
                             //sh "pip3 show dbt"
                             sh "sudo su ec2-user"
                             sh "pip3 install dbt-core dbt-redshift"
+                            sh "whoami"
                             sh "dbt --version"
                             sh "cd s3DBTRedshift"
                             sh "dbt debug"
