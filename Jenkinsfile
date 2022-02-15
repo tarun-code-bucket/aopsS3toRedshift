@@ -28,7 +28,7 @@ pipeline{
         stage('dbt-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
-                            //sh "python3.7 -m pip uninstall dbt-core dbt-redshift -y"
+                            sh "python3.7 -m pip uninstall dbt-core dbt-redshift"
                             //sh "python3 install --upgrade pip3"
                             sh "pip3 install dbt-core dbt-redshift"
                             //sh "pip3 show dbt"
