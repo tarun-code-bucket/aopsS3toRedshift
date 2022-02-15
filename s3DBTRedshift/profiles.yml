@@ -1,0 +1,12 @@
+s3DBTRedshift:
+  outputs:
+    dev:
+      dbname: dev
+      host: redshift-cluster-1.cfpkf2g1nhvk.us-east-1.redshift.amazonaws.com:5439/dev
+      password: Check123
+      port: 5439
+      schema: analytics_s3_DBT_Redshift
+      threads: 4
+      type: redshift
+      user: awsuser
+  target: dev

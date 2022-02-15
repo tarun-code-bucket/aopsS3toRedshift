@@ -29,13 +29,8 @@ pipeline{
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
                             //sh "python3.7 -m pip uninstall dbt-core dbt-redshift -y"
-                            sh "sudo yum install epel-release"
-                            sh "pip3 install virtualenv"
-                            sh "python3 -m venv vm_dbt_package"
-                            sh "cd vm_dbt_package"
-                            sh "source bin/activate"
                             sh "pip3 install --upgrade pip3"
-                            sh "pip3 install dbt"
+                            sh "pip3 install dbt-core dbt-redshift"
                             sh "pip3 show dbt"
                             sh "cd s3DBTRedshift"
                             sh "dbt debug"
