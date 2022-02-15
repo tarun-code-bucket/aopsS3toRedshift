@@ -24,6 +24,8 @@ pipeline{
                             sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name}'
                         } 
                 }
+        }
+        stage('dbt-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
                             sh "pip3 install dbt-core dbt-redshift"
@@ -32,7 +34,7 @@ pipeline{
                             sh "dbt debug"
                             sh "dbt seed"
                         } 
-            }
+                }
         }
     }
 }
