@@ -21,7 +21,7 @@ pipeline{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
 
                             sh "chmod +x -R ${env.WORKSPACE}"
-                            sh 'scripts/getDataFromS3.py ${Bucket_Name} ${File_Name}'
+                            sh 'python scripts/getDataFromS3.py ${Bucket_Name} ${File_Name}'
                         } 
             }
         }
