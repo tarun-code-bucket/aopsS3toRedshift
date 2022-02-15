@@ -28,6 +28,7 @@ pipeline{
         stage('dbt-execution'){
                 steps{
                     withAWS(role: 'AopsJenkins', region: 'us-east-1'){
+                            sh "echo pwd"
                             sh "pip3 install dbt-core dbt-redshift"
                             sh "dbt init"
                             sh "cd s3DBTRedshift"
