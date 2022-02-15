@@ -49,12 +49,11 @@ pipeline{
                             //sh "export PATH=\"/usr/local/bin/:${PATH}\""
                             sh "echo $PATH"
                             sh "dbt --version"
-                            sh "pwd"
-                            sh "cd ${env.WORKSPACE}/s3DBTRedshift/"
-                            sh "pwd"
-                            //sh "sudo cp /var/lib/jenkins/workspace/aops_pipeline/s3DBTRedshift/profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
-                            sh "dbt run"
-                            sh "dbt seed"
+                            dir("s3DBTRedshift"){
+                                //sh "sudo cp ${env.WORKSPACE}/s3DBTRedshift/profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
+                                 sh "dbt run"
+                                sh "dbt seed"
+                            }
                         } 
                 }
         }
