@@ -51,9 +51,9 @@ pipeline{
                             sh "dbt --version"
                             dir("s3DBTRedshift"){
                                 //sh "mkdir /var/lib/jenkins/.dbt"
-                                sh "sudo mkdir /var/lib/jenkins/workspace/aops_pipeline/s3DBTRedshift/seeds"
-                                sh "sudo mv /var/lib/jenkins/workspace/aops_pipeline/sample_customer_data.csv seeds/sample_customer_data.csv"
-                                sh "sudo mv profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
+                                //sh "sudo mkdir /var/lib/jenkins/workspace/aops_pipeline/s3DBTRedshift/seeds"
+                                //sh "sudo mv /var/lib/jenkins/workspace/aops_pipeline/sample_customer_data.csv seeds/sample_customer_data.csv"
+                                //sh "sudo mv profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
                                 sh "dbt debug"
                                 sh "dbt seed"
                                 sh "dbt run"
