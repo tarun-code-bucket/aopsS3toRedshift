@@ -1,6 +1,6 @@
 #This script gets the data from the S3 bucket 
 # which is then utilised by the DBT to transform and ingest back to Redshift table.
-
+import os
 import boto3
 import sys
 import logging
