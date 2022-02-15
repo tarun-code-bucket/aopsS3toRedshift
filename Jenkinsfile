@@ -34,8 +34,10 @@ pipeline{
                             //sh "pip3 install dbt-core dbt-redshift"
                             //sh "pip3 show dbt"
                             //sh "sudo su -l ec2-user"
-                            sh "export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:${env.PATH}\""
-                            sh "echo ${env.PATH}"
+                            sh 'pip3 install virtualenv && virtualenv --version && virtualenv venv && virtualenv -p /usr/bin/python3 venv '
+                            sh "source venv/bin/activate"
+                            //sh "export PATH=\"/var/lib/jenkins/.local/bin/dbt/bin:${env.PATH}\""
+                            //sh "echo ${env.PATH}"
                             sh "pip3 install dbt-core dbt-redshift"
                             sh "whoami"
                             sh "dbt --version"
