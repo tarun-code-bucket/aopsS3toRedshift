@@ -15,7 +15,7 @@ profile: 's3DBTRedshift'
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["/var/lib/jenkins/workspace/aops_pipeline/sample_customer_data.csv"]
+seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
