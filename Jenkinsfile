@@ -18,9 +18,12 @@ pipeline{
     stages{
         stage('stack-execution'){
                 steps{
-                        sh "chmod +x -R ${env.WORKSPACE}"
-                        sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${REGION}'
-                    } 
+                    withAWS(role: 'AopsJenkins', region: 'us-east-1'){
+
+                            sh "chmod +x -R ${env.WORKSPACE}"
+                            sh 'scripts/deploy.sh ${Bucket_Name} ${File_Name} ${REGION}'
+                        } 
             }
         }
+    }
 }
