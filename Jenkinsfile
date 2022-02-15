@@ -50,7 +50,7 @@ pipeline{
                             sh "echo $PATH"
                             sh "dbt --version"
                             sh "pwd"
-                            sh "cd s3DBTRedshift"
+                            sh "cd s3DBTRedshift/"
                             sh "pwd"
                             //sh "sudo cp /var/lib/jenkins/workspace/aops_pipeline/s3DBTRedshift/profiles.yml /var/lib/jenkins/.dbt/profiles.yml"
                             sh "dbt run"
